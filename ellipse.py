@@ -24,7 +24,7 @@ def solve(semi_major, semi_minor, p):
     a = semi_major
     b = semi_minor
 
-    for x in range(0, 3):
+    for x in range(0, 2):
         x = a * math.cos(t)
         y = b * math.sin(t)
 
@@ -46,7 +46,7 @@ def solve(semi_major, semi_minor, p):
         t += delta_t
         t = min(math.pi/2, max(0, t))
 
-    return (math.copysign(x, p[0]), math.copysign(y, p[1]))
+    return (math.copysign(a * math.cos(t), p[0]), math.copysign(b * math.sin(t), p[1]))
 
 
 xs = np.linspace(-plot_size[0]/2, (plot_size[0]/2)-1, plot_size[0])
